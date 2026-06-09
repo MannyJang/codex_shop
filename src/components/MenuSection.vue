@@ -26,7 +26,7 @@ const menuItems = [
   <section id="menu" class="menu-section">
     <div class="section-heading">
       <p class="eyebrow">Highlights</p>
-      <h2>今晚推荐</h2>
+      <h2>推荐菜品</h2>
     </div>
     <div class="menu-grid">
       <article
