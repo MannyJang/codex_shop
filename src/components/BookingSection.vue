@@ -1,23 +1,57 @@
 <script setup>
 import { reactive, ref } from "vue";
+import { isSupabaseConfigured, supabase } from "../lib/supabase";
 
 const partyOptions = ["2 位", "3 位", "4 位", "5-6 位"];
 const timeOptions = ["18:00", "18:30", "19:00", "19:30", "20:00"];
 
 const form = reactive({
   name: "",
+  phone: "",
   party: partyOptions[0],
   time: timeOptions[0],
   requests: "",
 });
 const message = ref("");
+const messageType = ref("");
+const isSubmitting = ref(false);
 
-function submitBooking() {
-  const guestName = form.name.trim() || "您好";
-  const requestNote = form.requests.trim() ? "，特殊要求也已记录" : "";
-  message.value = `${guestName}，已收到 ${form.party} ${form.time} 的订位请求${requestNote}，我们会尽快电话确认。`;
+async function submitBooking() {
+  message.value = "";
+  messageType.value = "";
+
+  if (!isSupabaseConfigured) {
+    messageType.value = "error";
+    message.value = "预约服务尚未配置，请稍后再试。";
+    return;
+  }
+
+  isSubmitting.value = true;
+
+  const guestName = form.name.trim();
+  const requestNote = form.requests.trim();
+  const { error } = await supabase.from("reservation").insert({
+    guest_name: guestName,
+    phone: form.phone.trim(),
+    party_size: form.party,
+    reservation_time: form.time,
+    special_requests: requestNote,
+  });
+
+  isSubmitting.value = false;
+
+  if (error) {
+    console.error("Failed to save reservation:", error.message);
+    messageType.value = "error";
+    message.value = "提交失败，请检查网络后重试，或致电餐厅预约。";
+    return;
+  }
+
+  messageType.value = "success";
+  message.value = `${guestName}，已收到 ${form.party} ${form.time} 的订位请求，我们会尽快电话确认。`;
 
   form.name = "";
+  form.phone = "";
   form.party = partyOptions[0];
   form.time = timeOptions[0];
   form.requests = "";
@@ -65,6 +99,22 @@ function submitBooking() {
           name="name"
           autocomplete="name"
           placeholder="你的称呼"
+          maxlength="80"
+          required
+        />
+      </label>
+
+      <label class="booking-field booking-field-wide">
+        <span class="field-label">手机号</span>
+        <input
+          v-model="form.phone"
+          type="tel"
+          name="phone"
+          autocomplete="tel"
+          placeholder="用于确认预约"
+          minlength="6"
+          maxlength="30"
+          required
         />
       </label>
 
@@ -98,11 +148,18 @@ function submitBooking() {
         <span class="field-hint">{{ form.requests.length }}/200</span>
       </label>
 
-      <button class="booking-submit" type="submit">
-        <span>发送预订</span>
+      <button class="booking-submit" type="submit" :disabled="isSubmitting">
+        <span>{{ isSubmitting ? "正在提交…" : "发送预订" }}</span>
         <span class="submit-arrow" aria-hidden="true">→</span>
       </button>
-      <p class="form-message" role="status" aria-live="polite">{{ message }}</p>
+      <p
+        class="form-message"
+        :class="{ 'form-message-error': messageType === 'error' }"
+        role="status"
+        aria-live="polite"
+      >
+        {{ message }}
+      </p>
     </form>
   </section>
 </template>

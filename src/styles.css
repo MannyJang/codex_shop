@@ -531,6 +531,12 @@ h3 {
   box-shadow: 0 4px 12px rgba(49, 84, 66, 0.16);
 }
 
+.booking-submit:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
+}
+
 .booking-submit:focus-visible {
   outline: 3px solid rgba(66, 116, 91, 0.28);
   outline-offset: 3px;
@@ -549,6 +555,10 @@ h3 {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.55;
+}
+
+.form-message-error {
+  color: var(--tomato);
 }
 
 .visit-section {
