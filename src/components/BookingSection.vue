@@ -28,10 +28,25 @@ function submitBooking() {
   <section id="booking" class="booking-band">
     <div class="booking-copy">
       <p class="eyebrow">Reservation</p>
-      <h2>预留今晚的一张桌子</h2>
-      <p>
-        工作日适合两三好友小聚，周末建议提前一天预约。我们会为过敏、素食或纪念日需求预留备注。
-      </p>
+      <h2 class="multilingual-heading">
+        <span lang="zh-CN">预留今晚的一张桌子</span>
+        <span lang="en">Reserve a table for tonight</span>
+        <span lang="ko">오늘 저녁을 위한 테이블을 예약하세요</span>
+      </h2>
+      <div class="multilingual-copy">
+        <p lang="zh-CN">
+          工作日适合两三好友小聚，周末建议提前一天预约。我们会为过敏、素食或纪念日需求预留备注。
+        </p>
+        <p lang="en">
+          Weekdays are perfect for a small gathering of two or three, while weekend
+          reservations are best made a day ahead. Let us know about allergies, vegetarian
+          preferences, or special occasions.
+        </p>
+        <p lang="ko">
+          평일에는 두세 분의 편안한 모임에 잘 어울리며, 주말에는 하루 전 예약을
+          권합니다. 알레르기, 채식 또는 기념일 요청 사항도 미리 남겨 주세요.
+        </p>
+      </div>
     </div>
     <form class="booking-form" aria-label="订位表单" @submit.prevent="submitBooking">
       <div class="booking-form-header">
