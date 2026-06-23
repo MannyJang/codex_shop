@@ -593,6 +593,326 @@ h3 {
   font-size: 14px;
 }
 
+/* Reservation admin */
+.admin-page {
+  min-height: 100vh;
+  padding: 36px 5vw 72px;
+  background:
+    radial-gradient(circle at top right, rgba(184, 137, 61, 0.13), transparent 32%),
+    var(--paper);
+}
+
+.admin-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+  max-width: 1320px;
+  margin: 0 auto 54px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.admin-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Noto Serif SC", serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.admin-brand .brand-mark {
+  border-color: var(--forest);
+  color: var(--forest);
+}
+
+.admin-header-copy {
+  text-align: center;
+}
+
+.admin-header-copy .eyebrow {
+  margin-bottom: 5px;
+}
+
+.admin-header-copy h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.admin-ghost-button {
+  justify-self: end;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: transparent;
+  color: var(--forest);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-login-shell,
+.admin-dashboard,
+.admin-state-card {
+  max-width: 1320px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.admin-login-shell {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 0.7fr);
+  gap: 72px;
+  align-items: center;
+  max-width: 920px;
+  min-height: 54vh;
+}
+
+.admin-login-copy p:not(.eyebrow) {
+  max-width: 470px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.admin-login-form {
+  display: grid;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 20px 60px rgba(49, 84, 66, 0.1);
+}
+
+.admin-login-form label,
+.admin-date-filter {
+  display: grid;
+  gap: 8px;
+  color: #4f5d55;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-login-form input,
+.admin-date-filter input {
+  min-height: 50px;
+  border: 1px solid rgba(49, 84, 66, 0.18);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  outline: none;
+}
+
+.admin-login-form input:focus,
+.admin-date-filter input:focus {
+  border-color: var(--forest);
+  box-shadow: 0 0 0 4px rgba(49, 84, 66, 0.12);
+}
+
+.admin-primary-button {
+  min-height: 52px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--forest);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-primary-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.admin-error {
+  margin: 0;
+  color: var(--tomato);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.admin-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+
+.admin-date-filter {
+  min-width: 210px;
+}
+
+.admin-state-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
+  text-align: center;
+}
+
+.admin-state-card h2,
+.admin-state-card h3 {
+  color: var(--ink);
+}
+
+.admin-data-error {
+  margin-bottom: 20px;
+}
+
+.admin-table-wrap {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 16px 50px rgba(49, 84, 66, 0.08);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 18px 16px;
+  border-bottom: 1px solid rgba(222, 216, 204, 0.78);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.admin-table th {
+  background: rgba(49, 84, 66, 0.06);
+  color: #536158;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-table td {
+  font-size: 14px;
+}
+
+.admin-table td strong {
+  color: var(--forest);
+  font-size: 18px;
+}
+
+.admin-note {
+  max-width: 320px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.admin-status-select {
+  min-width: 100px;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 28px 8px 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.status-pending {
+  background: #f5e9cf;
+  color: #805e22;
+}
+
+.status-confirmed {
+  background: #dceade;
+  color: #315442;
+}
+
+.status-cancelled {
+  background: #f2deda;
+  color: #964532;
+}
+
+@media (max-width: 760px) {
+  .admin-page {
+    padding: 24px 18px 52px;
+  }
+
+  .admin-header {
+    grid-template-columns: 1fr auto;
+    margin-bottom: 36px;
+  }
+
+  .admin-header-copy {
+    display: none;
+  }
+
+  .admin-login-shell {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .admin-login-form {
+    padding: 24px;
+  }
+
+  .admin-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .admin-table,
+  .admin-table tbody,
+  .admin-table tr,
+  .admin-table td {
+    display: block;
+  }
+
+  .admin-table thead {
+    display: none;
+  }
+
+  .admin-table tr {
+    margin-bottom: 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 16px;
+    background: #fff;
+  }
+
+  .admin-table td {
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  .admin-table td::before {
+    content: attr(data-label);
+    color: #768179;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .admin-note {
+    max-width: none;
+  }
+}
+
 @media (max-width: 900px) {
   .site-header {
     grid-template-columns: 1fr auto;
