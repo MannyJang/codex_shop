@@ -18,6 +18,7 @@ import heroImage from "../assets/restaurant-hero.png";
       </p>
       <div class="hero-actions" aria-label="首页操作">
         <a class="button button-primary" href="#booking">预订座位</a>
+        <a class="button button-secondary" href="#lookup">查询预约</a>
         <a class="button button-secondary" href="#menu">查看菜单</a>
       </div>
     </div>
